@@ -121,9 +121,16 @@ console.log(convertFt(5));
 
 function annoyingSong(n) {
   let count = n;
+
   while (count > 1) {
+
+    console.log(
+      `${count} bottles of soda on the wall, ${count} bottles of soda, take one down pass it around ${
+        count - 1
+      } bottles of soda on the wall`
+    );
+
     count -= 1;
-    console.log("this count", count);
   }
 }
 
