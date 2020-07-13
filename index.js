@@ -48,14 +48,13 @@ console.log(dogYears(33));
 
 function dogFeeder(weight, age) {
   if (age >= 1 && weight <= 5) {
-    return weight * .05;
+    return weight * 0.05;
   } else if (age >= 1 && weight >= 6 && weight <= 10) {
-    return weight*.04
-  }
-  else if (age >= 1 && weight >= 11 && weight <= 15) {
-    return weight*.03;
-  } else if (age >= 1 && weight > 15){
-    return weight*.02
+    return weight * 0.04;
+  } else if (age >= 1 && weight >= 11 && weight <= 15) {
+    return weight * 0.03;
+  } else if (age >= 1 && weight > 15) {
+    return weight * 0.02;
   }
 }
 
@@ -68,16 +67,67 @@ console.log(dogFeeder(15, 1));
 // use math.random to determine the computers choice
 // hint while you can complete this with only conditionals based on strings it may help to equate choice to a number
 
+function game(string) {
+  // Paper = 3;
+  // Rock = 2;
+  // Scissors = 1;
+
+  let opponentChoice = Math.floor(Math.random() * 3) + 1;
+
+  if (string === "paper" && opponentChoice == 1) {
+    return "You chose PAPER, opponent chose SCISSORS. You lose!";
+  } else if (string === "paper" && opponentChoice == 2) {
+    return "You chose PAPER, opponent chose ROCK. You win!";
+  } else if (string === "paper" && opponentChoice == 3) {
+    return "You chose PAPER, opponent chose PAPER. It's a tie!";
+  }
+
+  if (string === "rock" && opponentChoice == 1) {
+    return "You chose ROCK, opponent chose SCISSORS. You win!";
+  } else if (string === "rock" && opponentChoice == 2) {
+    return "You chose ROCK, opponent chose ROCK. It'a tie!";
+  } else if (string === "rock" && opponentChoice == 3) {
+    return "You chose ROCK, opponent chose PAPER. You lose!";
+  }
+
+  if (string === "scissors" && opponentChoice == 1) {
+    return "You chose SCISSORS, opponent chose SCISSORS. It's a tie!";
+  } else if (string === "scissors" && opponentChoice == 2) {
+    return "You chose SCISSORS, opponent chose ROCK. You lose!";
+  } else if (string === "scissors" && opponentChoice == 3) {
+    return "You chose SCISSORS, opponent chose PAPER. You win!";
+  }
+}
+
+var gameResults = game("scissors");
+console.log(gameResults);
+
 /************************************************************** Task 5 **************************************************************/
 //Metric Converter
 //a. KM to Miles - should take the number of kilometers and convert it to the equal number of miles
-
+function convertK(km) {
+  return km * 0.621371;
+}
+console.log(convertK(2));
 //b. Feet to CM - should take the number of feet and convert it to the equal number of centimeters
-
+function convertFt(ft) {
+  return ft * 30.48;
+}
+console.log(convertFt(5));
 /************************************************************** Task 6 **************************************************************/
 // 99 bottles of soda on the wall
 // create a function called annoyingSong
 // the function should take a starting number as an argument and count down - at each iteration it should log (number) bottles of soda on the wall, (number) bottles of soda, take one down pass it around (number left over) bottles of soda on the wall`
+
+function annoyingSong(n) {
+  let count = n;
+  while (count > 1) {
+    count -= 1;
+    console.log("this count", count);
+  }
+}
+
+annoyingSong(99);
 
 /************************************************************** Task 7 **************************************************************/
 //Grade Calculator
@@ -87,6 +137,20 @@ console.log(dogFeeder(15, 1));
 //70s should be Cs
 //60s should be D
 //and anything below 60 should be F
+
+function gradeCalc(grade) {
+  if (grade >= 90) {
+    return "A";
+  } else if (grade >= 80) {
+    return "B";
+  } else if (grade >= 70) {
+    return "C";
+  } else {
+    return "D";
+  }
+}
+
+console.log(gradeCalc(65));
 
 /************************************************************** Stretch **************************************************************/
 //Create a function that counts the number of vowels within a string. It should handle both capitalized and uncapitalized vowels.
